@@ -100,12 +100,37 @@ switch ($request[1]) {
     default: 
     //make array of allowed pages    
     if ($method === "GET") {
-        session_start();        
-        //CHECK USER
-        require(applicationTree . "/bldfrontpage.php"); 
-    
-        $rt = "THIS IS WHERE THE PAGE GOES";
-        echo $rt;
-        
+      session_start();        
+      //CHECK USER
+      $reqPage = ((trim($request[1]) === "") ? $reqPage = "root" : $reqPage = $request[1]);
+      require(applicationTree . "/bldfrontpage.php"); 
+      $pageBld = new pagebuilder($reqPage, $request, $mobilePrefix);
+      if ((int)$pageBld->statusCode <> 200) {
+        http_response_code($pageBld->statusCode);
+        echo "<!DOCTYPE html>\n<html>";
+        echo "\n<head>";
+        echo "\n<title>PAGE NOT FOUND</title>";
+        echo "\n</head>";
+        echo "\n<body><h1>({$pageBld->statusCode}) Requested Page ({$reqPage}) @ chtneast.org - Not Found!</h1></body></html>";
+      } else {
+        echo "<!DOCTYPE html>\n<html>";
+        echo "\n<head>";
+        echo (trim($pageBld->headr) !== "") ? "\n" . $pageBld->headr : "";
+        echo (trim($pageBld->pagetitle) !== "") ? "\n<title>" . $pageBld->pagetitle . "</title>" : "\n<title>Bonanza Boys</title>";
+        echo (trim($pageBld->pagetitleicon) !== "") ? "\n" . $pageBld->pagetitleicon : "";
+        echo (trim($pageBld->stylr) !== "") ? "\n<style>" . $pageBld->stylr . "\n</style>" :  "";
+        echo (trim($pageBld->scriptrs) !== "") ? "\n<script lang=javascript>" . $pageBld->scriptrs . "</script>" : "";
+        echo "\n</head>";
+        echo "\n<body>";
+        echo "\n";
+        echo "\n" . $pageBld->bodycontent;
+        echo "\n" . $pageBld->menucontent;
+        echo "\n" . $pageBld->pagecontrols;
+        echo "\n</body>";
+        echo "\n</html>";
+      }
+    } else { 
+      echo "<h1>ONLY GET METHOD REQUESTS ARE ACCEPTED HERE";
+      exit();
     }    
 }
