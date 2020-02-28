@@ -22,13 +22,9 @@ class bldcontent {
   
 <div id=chtnIntroHold>
    <div id=chtnIntroText>
-     <div class=divlines></div>
      <div class=headerLine>Human Biospecimens For Research</div>
      <div class=headerSubLine>Serving the Research Community with Quality Biospecimens for more than 30 years!</div>
-     <div class=headerText>The Eastern Division of the Cooperative Human Tissue Network (CHTN), which has been in existence since 1987, continues its work of providing well-characterized biospecimens to investigators working in the fields of neoplasia, autoimmune disease, degenerative diseases and aging. Research projects include utilization of techniques of molecular biology, immunobiology, proteomics, genomics, and investigations of mutations, nucleic acid chemistry, and microRNA in disease. We are adapting our services to provide more specialized but still high-quality specimens to fill researcher needs by expanding our research base in the region.
-   <p><b>Support at CHTN Eastern</b><br>Having trouble with our page? Check out our <a href="https://scienceserver.chtneast.org" target="_new">Investigator Gateway</a> or <a href="{$tt}">contact support</a> and we'll help you sort it out. Need a <a href="https://www.chtn.org/d/chtn-application.pdf" target="_new">CHTN application</a> or another <a href="{$tt}/contact-us">CHTN Division</a>? You can find all that information here as well.
-     </div> 
-     <div class=divlines></div>
+     <div class=readMoreBtnHold><a href="{$tt}#about">Read More</a></div>
    </div> 
 </div>
 
@@ -44,7 +40,7 @@ class bldcontent {
 
 <a href="{$tt}/posters-papers-abstracts">   
   <div  class="moreLinkLink borderright">
-     <div class=moreLinkIconHolder><i class="material-icons">pages</i></div>
+     <div class=moreLinkIconHolder><i class="material-icons">menu_book</i></div>
      <div class=moreLinkTitle>CHTN Eastern Publications</div>
      <div class=moreLinkText>We often share our work in biorepository science at conferences, lectures, posters and papers.  Find our list here.</div>   
   </div>
@@ -62,10 +58,14 @@ class bldcontent {
 
 </div>
 
+<a id="about">
 <div id=aboutWriteup>
 <div class=divlines></div>
 <div id=abtTitle>About CHTN Eastern Division</div>
 <div class=divlines></div>
+<div class=headerText>The Eastern Division of the Cooperative Human Tissue Network (CHTN), which has been in existence since 1987, continues its work of providing well-characterized biospecimens to investigators working in the fields of neoplasia, autoimmune disease, degenerative diseases and aging. Research projects include utilization of techniques of molecular biology, immunobiology, proteomics, genomics, and investigations of mutations, nucleic acid chemistry, and microRNA in disease. We are adapting our services to provide more specialized but still high-quality specimens to fill researcher needs by expanding our research base in the region.
+   <p><b>Support at CHTN Eastern</b><br>Having trouble with our page? Check out our <a href="https://scienceserver.chtneast.org" target="_new">Investigator Gateway</a> or <a href="{$tt}">contact support</a> and we'll help you sort it out. Need a <a href="https://www.chtn.org/d/chtn-application.pdf" target="_new">CHTN application</a> or another <a href="{$tt}/contact-us">CHTN Division</a>? You can find all that information here as well.
+     </div> 
 <div class=twoColumn>
 The Cooperative Human Tissue Network is an organization sponsored by the National Cancer Institute (NCI) that proactively procures bio-specimens to support the research community.
 <p>
@@ -83,6 +83,7 @@ Requirements for collection, storage and distribution vary depending on the type
 <p>
 </div> 
 </div>
+</a>
 
 <div id=copyrightdsp> &#9400; Copyright Code and Content - CHTN Eastern Division/Perelman School of Medicine, University of Pennsylvania 2007-{$thisyear} </div>
 
