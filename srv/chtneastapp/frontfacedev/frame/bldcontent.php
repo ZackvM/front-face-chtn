@@ -90,8 +90,8 @@ Requirements for collection, storage and distribution vary depending on the type
 <div id=pgeFooter>
   <div id=allMasterLinks>
    <a href="{$tt}">CHTNEastern</a>
-   <a href="{$tt}">CHTNEastern ScienceServer</a>
-   <a href="{$tt}">CHTNEastern Transient Inventory Search</a>
+   <a href="https://scienceserver.chtneast.org" target="_new">CHTNEastern ScienceServer</a>
+   <a href="https://transient.chtneast.org" target="_new">CHTNEastern Transient Inventory Search</a>
    <a href="{$tt}">CHTNEastern Services</a>
    <a href="{$tt}">Pay Processing Fee Invoice</a>
    <a href="{$tt}">Contact CHTNEastern</a>

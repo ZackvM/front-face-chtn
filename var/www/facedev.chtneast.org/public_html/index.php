@@ -14,6 +14,14 @@
  * 
  */
 
+//MAKE SURE USE HTTPS - SSL REDIRECTS TO 443 - SO THIS SHOULD NEVER NEED TO BE UTILIZED 
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('location: ' . $location);
+    exit;
+}
+
 //START SESSSION FOR ALL TRACKING 
 session_start(); 
 //DEFINE APPLICATION PATH PARAMETERS
