@@ -79,6 +79,9 @@ function pagetabs($whichpage, $rqststr) {
     case 'root':
       $thisTab = "Cooperative Human Tissue Network : Eastern Division (Home Page)";
       break;
+    case 'posterspapersabstracts':
+      $thisTab = "Cooperative Human Tissue Network : Eastern Division : Posters, Papers &amp; Abstracts";
+      break;
 //    case 'blog':
 //        if ( trim( $rqststr[2] ) === "" ) {
 //          $thisTab = "Blog Listing [Zack von Menchhofen - The Choirmaster]";

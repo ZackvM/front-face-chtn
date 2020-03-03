@@ -10,7 +10,91 @@ class bldcontent {
       $this->serveruser = $serverid;
       $this->serverapi = $serverpw;
     }
-    
+
+    function posterspapersabstracts ( $rqst ) {
+      $tt = treeTop;
+      $thisyear = date('Y');
+      $at = genAppFiles;
+      $upenn = base64file("{$at}/publicobj/graphics/psom_logo_white.png","SOMALogo","png",true);
+      $nci = base64file("{$at}/publicobj/graphics/nci-logo-full.png","NCILogo","png",true);
+      $dt = dataTree; 
+
+      $publocs = json_decode(callrestapi("GET","{$dt}/chtneast-publication-listing/publications"), true);
+      $publications .= "<div class=publications><div class=pubHeader>Publications</div>";
+      foreach ($publocs['DATA'] as $pkey => $pval) { 
+        $urldsp = "";
+        if (trim($pval['urldsp']) !== "") { 
+          $urldsp = "<a href=\"{$pval['urldsp']}\" target=\"_new\"><i class=\"material-icons\">open_in_new</i></a>";
+        } 
+        $publications .= "<div class=pubReference><span class=authors>{$pval['authors']}</span>: <span class=pubTitle>{$pval['title']}</span>. <span class=journalName>{$pval['journal']}</span>. {$pval['bibliographytag']}. {$urldsp}</div>";
+      }
+      $publications .= "</div>";
+
+      $pubas = json_decode(callrestapi("GET","{$dt}/chtneast-publication-listing/publishedabstracts"), true);
+      //$pubalist = json_decode($pubas['datareturn'],true);
+      $publications .= "<div class=publications><div class=pubHeader>Published Abstracts</div>";
+      foreach ($pubas['DATA'] as $pkey => $pval) {
+        $urldsp = "";
+        if (trim($pval['urldsp']) !== "") { 
+           $urldsp = "<a href=\"{$pval['urldsp']}\" target=\"_new\"><i class=\"material-icons\" >open_in_new</i></a>";
+        } 
+        $publications .= "<div class=pubReference><span class=authors>{$pval['authors']}</span>: <span class=pubTitle>{$pval['title']}</span>. <span class=journalName>{$pval['journal']}</span>. {$pval['bibliographytag']}. {$urldsp}</div>";
+      }
+      $publications .= "</div>";
+ 
+      $pubpos = json_decode(callrestapi("GET","{$dt}/chtneast-publication-listing/abstracts"),true);
+      //$pubposlist = json_decode($pubpos['datareturn'],true);
+      $publications .= "<div class=publications><div class=pubHeader>Abstracts</div>";
+      foreach ($pubpos['DATA'] as $pkey => $pval) {
+        $urldsp = "";
+        if (trim($pval['urldsp']) !== "") {
+          $urldsp = "< href=\"{$pval['urldsp']}\" target=\"_new\"<i class=\"material-icons\">open_in_new</i></a>";
+        }
+        $publications .= "<div class=pubReference><span class=authors>{$pval['authors']}</span>: <span class=pubTitle>{$pval['title']}</span>. <span class=journalName>{$pval['journal']}</span>. {$pval['bibliographytag']}. {$urldsp}</div>";
+      }
+      $publications .= "</div>";
+
+
+      $rtnthis = <<<PGERTN
+<div id=publicationdivholder>
+{$publications}
+
+  <div id=copyrightdsp> &#9400; Copyright Code and Content - CHTN Eastern Division/Perelman School of Medicine, University of Pennsylvania 2007-{$thisyear} </div>
+</div>
+
+<div id=pgeFooter>
+  <div id=allMasterLinks>
+   <a href="{$tt}">CHTNEastern</a>
+   <a href="https://scienceserver.chtneast.org" target="_new">CHTNEastern ScienceServer</a>
+   <a href="https://transient.chtneast.org" target="_new">CHTNEastern Transient Inventory Search</a>
+   <a href="{$tt}">CHTNEastern Services</a>
+   <a href="{$tt}">Pay Processing Fee Invoice</a>
+   <a href="{$tt}">Contact CHTNEastern</a>
+   <a href="{$tt}/posters-papers-abstracts">Papers, Publications &amp; Talks</a>
+   <a href="{$tt}">Meet the Staff</a>
+   <a href="{$tt}">CHTNMid-Atlantic</a>
+   <a href="{$tt}">CHTNMid-Western</a>
+   <a href="{$tt}">CHTNPediatric</a>
+   <a href="{$tt}">CHTNSouthern</a>
+   <a href="{$tt}">CHTNWestern</a>
+   <a href="{$tt}">CHTNNetwork</a>
+   <a href="{$tt}">CHTNTwitter</a>
+   <a href="https://www.chtn.org/d/chtn-application.pdf" target="_new">Download CHTN Application</a>
+   <a href="{$tt}">National Cancer Institute (NCI)</a>
+   <a href="{$tt}">Perelman School of Medicine / University of Pennsylvania</a>
+   <a href="{$tt}">Pathology Feasibility Review Panel (PFRP) / University of Pennsylvania</a>
+
+  </div>
+  <div id=allMasterLogos align=right>
+   <div>{$upenn}</div>
+   <div>{$nci}</div>
+  </div>
+</div>
+
+PGERTN;
+      return $rtnthis;
+    }
+
     function root ( $rqst ) { 
       $tt = treeTop;
       $thisyear = date('Y');
@@ -95,7 +179,7 @@ Requirements for collection, storage and distribution vary depending on the type
    <a href="{$tt}">CHTNEastern Services</a>
    <a href="{$tt}">Pay Processing Fee Invoice</a>
    <a href="{$tt}">Contact CHTNEastern</a>
-   <a href="{$tt}">Papers, Publications &amp; Talks</a>
+   <a href="{$tt}/posters-papers-abstracts">Papers, Publications &amp; Talks</a>
    <a href="{$tt}">Meet the Staff</a>
    <a href="{$tt}">CHTNMid-Atlantic</a>
    <a href="{$tt}">CHTNMid-Western</a>
@@ -104,7 +188,7 @@ Requirements for collection, storage and distribution vary depending on the type
    <a href="{$tt}">CHTNWestern</a>
    <a href="{$tt}">CHTNNetwork</a>
    <a href="{$tt}">CHTNTwitter</a>
-   <a href="{$tt}">Download CHTN Application</a>
+   <a href="https://www.chtn.org/d/chtn-application.pdf" target="_new">Download CHTN Application</a>
    <a href="{$tt}">National Cancer Institute (NCI)</a>
    <a href="{$tt}">Perelman School of Medicine / University of Pennsylvania</a>
    <a href="{$tt}">Pathology Feasibility Review Panel (PFRP) / University of Pennsylvania</a>

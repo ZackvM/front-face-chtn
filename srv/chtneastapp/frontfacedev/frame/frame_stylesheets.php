@@ -45,17 +45,12 @@ body { margin: 0; font-family: Roboto;  box-sizing: border-box;  min-height: 100
     #universalTopBarHolder #topAppBar #applicationListing .menuLinkSide { display: inline-block; text-decoration: none; outline: none; color: rgba({$this->color_white},1); -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s; padding: .2vh 0 0 0; }
     #universalTopBarHolder #topAppBar #applicationListing .menuLinkSide i { font-size: 4vh; }
     #universalTopBarHolder #topAppBar #applicationListing .appLinkSide { display: none; } 
-    
     #chtntoplogo { height: 9vh; width: auto; } 
-
     #universalTopBarHolder #menuItems {display: grid; grid-template-rows: 8vh auto; grid-template-columns: repeat( 4, 1fr);  }
     #universalTopBarHolder #menuItems .logoholder { grid-row: 1; grid-column: span 4; padding: 1vh 42vw 0 42vw;  } 
     #universalTopBarHolder #menuItems .menuLink { display: inline-block; text-decoration: none; outline: none; font-family: 'Roboto'; font-size: 1.6vh; color: rgba({$this->color_dark1},1); padding: 4vh 0 0 0; text-align: center; text-transform: uppercase; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s;  }
     #universalTopBarHolder #menuItems .hideThisLink { display: none; }  
-
     {$coarseportrait} 
-
-
   }
 
   @media (orientation: landscape) {
@@ -69,7 +64,6 @@ body { margin: 0; font-family: Roboto;  box-sizing: border-box;  min-height: 100
   
   @media (orientation: landscape) {
     #universalTopBarHolder { width: 100vw; height: 13vh; position: fixed; top: 0; left: 0; display: grid; grid-template-columns: repeat(2, 1fr); background: rgba({$this->color_white},.4); z-index: 50; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s; border-bottom: 1px solid rgba({$this->color_dark},0); }
-
     #universalTopBarHolder #topAppBar { grid-column: span 2; background: rgba({$this->color_dark},1); height: 3.3vh; padding: 0 2vw;  box-sizing: border-box;}
     #universalTopBarHolder #topAppBar #applicationListing { display: grid; grid-template-columns: 14vw 12vw 2vw; margin: 0 0 0 67vw;  }
     #universalTopBarHolder #topAppBar #applicationListing .menuLinkSide { display: inline-block; text-decoration: none; outline: none; color: rgba({$this->color_white},1); -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s; padding: .2vh 1vw 0 0; }
@@ -77,17 +71,13 @@ body { margin: 0; font-family: Roboto;  box-sizing: border-box;  min-height: 100
     #universalTopBarHolder #topAppBar #applicationListing .menuLinkSide i { font-size: 2.8vh; }
     #universalTopBarHolder #topAppBar #applicationListing .appLinkSide { text-decoration: none; outline: none; color: rgba({$this->color_white},1); font-family: 'Roboto Condensed'; font-size: 1.6vh; padding: .5vh 0 0 0; text-align: center; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s; } 
     #universalTopBarHolder #topAppBar #applicationListing .appLinkSide:hover { color: rgba({$this->color_highlight},1); }  
-
     #chtntoplogo { height: 7vh; width: auto; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s; } 
     #universalTopBarHolder #menuItems { grid-row: 2; margin: 0 10vw 1vh 6vw; display: grid; grid: 6vh / auto-flow;  -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s; }
     #universalTopBarHolder #menuItems .logoholder { width: 4vw; }  
     #universalTopBarHolder #menuItems .menuLink { display: inline-block; text-decoration: none; outline: none; font-family: 'Roboto'; font-size: 1.6vh; color: rgba({$this->color_dark1},1); padding: 3vh 0 0 0; text-align: center; text-transform: uppercase; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s;  }
     #universalTopBarHolder #menuItems .menuLink:hover { color: rgba({$this->color_highlight},1); }  
-
     #universalTopBarHolder #menuSidePanel { margin: 1vh 6vw 1vh 9vw; } 
-
     #mainPageDiv { z-index: 5; position: relative; }
-
     {$finelandscape} 
   }
 
@@ -100,17 +90,13 @@ body { margin: 0; font-family: Roboto;  box-sizing: border-box;  min-height: 100
     #universalTopBarHolder #topAppBar #applicationListing .menuLinkSide i { font-size: 2vh; }
     #universalTopBarHolder #topAppBar #applicationListing .appLinkSide { display: none; } 
     #universalTopBarHolder #topAppBar #applicationListing .appLinkSide:hover { color: rgba({$this->color_highlight},1); }  
-    
     #chtntoplogo { height: 9vh; width: auto; } 
-
     #universalTopBarHolder #menuItems {display: grid; grid-template-rows: 8vh auto; grid-template-columns: repeat( 4, 1fr);  }
     #universalTopBarHolder #menuItems .logoholder { grid-row: 1; grid-column: span 4; padding: 1vh 42vw 0 42vw;  } 
     #universalTopBarHolder #menuItems .menuLink { display: inline-block; text-decoration: none; outline: none; font-family: 'Roboto'; font-size: 1.6vh; color: rgba({$this->color_dark1},1); padding: 4vh 0 0 0; text-align: center; text-transform: uppercase; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s;  }
     #universalTopBarHolder #menuItems .menuLink:hover { color: rgba({$this->color_highlight},1); }  
     #universalTopBarHolder #menuItems .hideThisLink { display: none; }  
-
     {$fineportrait} 
-
   }
 
 }
@@ -272,7 +258,41 @@ RTNTHIS;
     return $rtnthis;
   }
 
+  function posterspapersabstractsfinelandscape () { 
+    $at = genAppFiles; 
+    $chtnmicroscope = base64file("{$at}/publicobj/graphics/bgmicrobig.png","background","bgurl",true);
 
+    $rtnthis = <<<RTNTHIS
+
+    body { background: rgba({$this->color_white},1); } 
+
+    #publicationdivholder { margin: 15vh 10vw 2vh 10vw; background: rgba({$this->color_white},1);  }
+
+    .publications { border: 1px solid rgba({$this->color_dark1},.3); margin: 1vh 0; padding: .3vh 1vw 2vh 1vw;    } 
+    .publications .pubHeader { text-align: center; font-family: 'Bowlby One SC'; font-size: 3vh; color: rgba({$this->color_dark1},1); }
+
+    .publications .pubReference { font-family: Roboto, Tahoma; font-size: 1.6vh; color: rgba({$this->color_black},1); padding: 1vh .3vw; line-height: 1.7em; }
+    .publications .pubReference .authors {  }
+    .publications .pubReference .pubTitle { font-weight: bold; }
+    .publications .pubReference .journalName {font-style: italic; }
+    .pubReference .material-icons {font-size: 1.5vh; }
+    .pubReference .material-icons:hover {cursor: pointer; color: rgba({$this->color_darkgreen},1); }
+
+    #copyrightdsp { text-align: center; font-size: 1.2vh; color: rgba({$this->color_dark1},1);   } 
+
+
+    #pgeFooter { background: rgba({$this->color_dark1},1); display: grid; grid-template-columns: 69vw 29vw; position: relative; z-index: 2; box-sizing: border-box; }
+    #pgeFooter #allMasterLinks { margin: 3vh 0 3vh 6vw; display: grid; grid-template-columns: repeat( 5, 12vw); grid-gap: .2vw; }
+    #pgeFooter #allMasterLinks a { display: inline-block; text-decoration: none; outline: none; font-family: 'Roboto Condensed'; font-size: 1.4vh; color: rgba({$this->color_white},1); border: 1px solid rgba({$this->color_highlight},1); background: rgba({$this->color_dark},1); padding: .5vh 0 .5vh .3vw;  -webkit-transition-duration: 0.5s; transition-duration: 0.5s; transition: 0.5s;}
+    #pgeFooter #allMasterLinks a:hover { color: rgba({$this->color_dark1},1); background: rgba({$this->color_highlight},1);   }
+    #pgeFooter #allMasterLogos { margin: 3vh 4vw 0 0; }
+    #SOMALogo { width: 13vw; height: auto; }  
+    #NCILogo { width: 15vw; height: auto; margin-top: 2vh; }  
+
+RTNTHIS;
+
+    return $rtnthis;
+  }
 
 }
 

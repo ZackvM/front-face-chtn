@@ -11,6 +11,23 @@ class pagecontent {
       $this->serverapi = $serverpw;
     }
 
+    function posterspapersabstracts ( $rqst ) {
+      $tt = treeTop;      
+      $at = genAppFiles;
+      $cb = new bldcontent();  
+      $pageData = $cb->posterspapersabstracts( $rqst );
+
+$pge = <<<PAGECONTENT
+
+<div id=mainPageDiv>
+  {$pageData} 
+</div>
+<div id=swirlddsp></div>
+PAGECONTENT;
+
+      return $pge;
+    }
+
     function root ( $rqst ) { 
       $tt = treeTop;      
       $at = genAppFiles;
