@@ -57,8 +57,8 @@ class bldcontent {
 
       $rtnthis = <<<PGERTN
 <div id=publicationdivholder>
+<div id=titleHead>CHTN Eastern's Publications &amp; Abstracts</div>
 {$publications}
-
   <div id=copyrightdsp> &#9400; Copyright Code and Content - CHTN Eastern Division/Perelman School of Medicine, University of Pennsylvania 2007-{$thisyear} </div>
 </div>
 
