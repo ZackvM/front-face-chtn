@@ -24,9 +24,9 @@ class mastercontroldevices {
 
   <div id=topAppBar>
    <div id=applicationListing>
-        <a href="https://scienceserver.chtneast.org" class="appLinkSide" target="_new">ScienceServer Specimen Management</a>     
-        <a href="https://transient.chtneast.org" class="appLinkSide" id="appTransientLink" target="_new">Transient Inventory Search</a>     
-        <a href="https://twitter.com/chtn_network" class="menuLinkSide" target="_new"><i class="fa fa-twitter"></i></a>     
+        <a href="https://scienceserver.chtneast.org" class="appLinkSide" target="_blank">ScienceServer Specimen Management</a>     
+        <a href="https://transient.chtneast.org" class="appLinkSide" id="appTransientLink" target="_blank">Transient Inventory Search</a>     
+        <a href="https://twitter.com/chtn_network" class="menuLinkSide" target="_blank"><i class="fa fa-twitter"></i></a>     
    </div>
   </div>
 
@@ -34,8 +34,8 @@ class mastercontroldevices {
         <a href="{$tt}" class="logoholder">{$chtnlogo}</a>
         <a href="{$tt}/biospecimen-services" class="menuLink">Services</a>     
         <a href="{$tt}/process-fee-payment" class="menuLink">Pay Invoice</a>
-        <a href="https://transient.chtneast.org" class="menuLink" target="_new">Search</a>     
-        <a href="https://scienceserver.chtneast.org" class="menuLink hideThisLink">ScienceServer</a>     
+        <a href="https://transient.chtneast.org" class="menuLink" target="_blank">Search</a>     
+        <a href="https://scienceserver.chtneast.org" class="menuLink hideThisLink" target="_blank">ScienceServer</a>     
         <a href="{$tt}/contact-us" class="menuLink">Contact</a>     
   </div>
 
@@ -81,6 +81,9 @@ function pagetabs($whichpage, $rqststr) {
       break;
     case 'posterspapersabstracts':
       $thisTab = "Cooperative Human Tissue Network : Eastern Division : Posters, Papers &amp; Abstracts";
+      break;
+    case 'biospecimenservices':
+      $thisTab = "Cooperative Human Tissue Network : Eastern Division : Fees for Services";
       break;
 //    case 'blog':
 //        if ( trim( $rqststr[2] ) === "" ) {

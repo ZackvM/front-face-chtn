@@ -52,6 +52,27 @@ class endfunctions {
     public $countUser = 0;
     public $rtnData = array();
 
+    function chtneastfeeschedule ( $request ) { 
+        require(genAppFiles . "/dataconn/sspdo.zck"); 
+        $sql = "SELECT pagesource, menuvalue, dspvalue, ifnull(additionalinformation,'') as addinfo, ifnull(academvalue,0) as academicvalue, ifnull(commercialvalue,0) as commercialvalue, ifnull(outsideinvestvalue,0) as outsideinvestigatorvalue FROM four.sys_master_menus where menu = 'PROCFEE' and dspind = 1 order by dsporder";
+        $rs = $conn->prepare($sql);
+        $rs->execute();
+        $this->countUser = $rs->rowCount();
+            if ($this->countUser > 0) { 
+              while ($r = $rs->fetch(PDO::FETCH_ASSOC)) { 
+                 $this->rtnData[] = $r;
+              }
+              $this->responseCode = 200; 
+              $this->msg = $rqst[2];
+            } else { 
+              $this->responseCode = 404; 
+              $this->msg = "NO RECORDS FOUND MATCHING YOUR QUERY PARAMETERS";                
+            }
+       $rows['statusCode'] = $this->responseCode; 
+       $rows['data'] = array("MESSAGE" => $this->msg, "ITEMSFOUND" => $this->countUser, "DATA" => $this->rtnData);
+       return $rows;                        
+    }
+
     function chtneastpublicationlisting($request) {    
        $rqst = explode("/", $request);
        if (trim($rqst[3]) !== "" ) {      

@@ -11,39 +11,40 @@ class pagecontent {
       $this->serverapi = $serverpw;
     }
 
+    function biospecimenservices ( $rqst )  {
+      $cb = new bldcontent();  
+      $pageData = $cb->biospecimenservices( $rqst );
+      $pge = <<<PAGECONTENT
+<div id=mainPageDiv>
+      {$pageData}
+</div>
+<div id=swirlddsp></div>
+PAGECONTENT;
+      return $pge;
+    } 
+
     function posterspapersabstracts ( $rqst ) {
-      $tt = treeTop;      
-      $at = genAppFiles;
       $cb = new bldcontent();  
       $pageData = $cb->posterspapersabstracts( $rqst );
-
-$pge = <<<PAGECONTENT
-
+      $pge = <<<PAGECONTENT
 <div id=mainPageDiv>
   {$pageData} 
 </div>
 <div id=swirlddsp></div>
 PAGECONTENT;
-
       return $pge;
     }
 
     function root ( $rqst ) { 
-      $tt = treeTop;      
-      $at = genAppFiles;
       $cb = new bldcontent();  
       $pageData = $cb->root( $rqst );
-
-$pge = <<<PAGECONTENT
-
+      $pge = <<<PAGECONTENT
 <div id=mainPageDiv>
   {$pageData} 
 </div>
 <div id=swirlddsp></div>
 PAGECONTENT;
-
       return $pge;
-
     } 
     
     function generateHeader( $whichpage) {

@@ -268,8 +268,11 @@ RTNTHIS;
 
     #publicationdivholder { margin: 15vh 10vw 2vh 10vw; background: rgba({$this->color_white},1);  }
 
+
+    #titleHead { text-align: center;  font-family: 'Bowlby One SC'; font-size: 3vh; padding: 0 0 3vh 0; color: rgba({$this->color_dark1},1); } 
+
     .publications { border: 1px solid rgba({$this->color_dark1},.3); margin: 1vh 0; padding: .3vh 1vw 2vh 1vw;    } 
-    .publications .pubHeader { text-align: center; font-family: 'Bowlby One SC'; font-size: 3vh; color: rgba({$this->color_dark1},1); }
+    .publications .pubHeader { text-align: center; font-family: 'Bowlby One SC'; font-size: 3vh; color: rgba({$this->color_highlight},1); }
 
     .publications .pubReference { font-family: Roboto, Tahoma; font-size: 1.6vh; color: rgba({$this->color_black},1); padding: 1vh .3vw; line-height: 1.7em; }
     .publications .pubReference .authors {  }
@@ -288,6 +291,37 @@ RTNTHIS;
     #pgeFooter #allMasterLogos { margin: 3vh 4vw 0 0; }
     #SOMALogo { width: 13vw; height: auto; }  
     #NCILogo { width: 15vw; height: auto; margin-top: 2vh; }  
+
+RTNTHIS;
+
+    return $rtnthis;
+  }
+
+  function biospecimenservicesfinelandscape () {
+
+
+    $rtnthis = <<<RTNTHIS
+
+    body { background: rgba({$this->color_white},1); font-family: Roboto; font-size: 1.8vh; } 
+
+    #mainPageDiv { margin: 14vh 12vw 3vh 12vw; }
+    #mainPageTitle { text-align: center;  font-family: 'Bowlby One SC'; font-size: 3vh; padding: 0 0 1vh 0; color: rgba({$this->color_dark1},1); }
+
+
+    .title {font-weight: bold; padding: 2vh 0 2vh 0; }
+    .explainer { text-align: justify; line-height: 1.5em; }
+
+    #feeHolder { width: 100%; border: 1px solid #000; margin: 4vh 0 1vh 0; display: grid; grid-template-columns: 70% 10% 10% 10%;   }  
+    #feeHolder .serviceHead { grid-column: span 4; background: rgba({$this->color_dark},1); color: rgba({$this->color_white},1); padding: .8vh .5vw;    }  
+    #feeHolder .serviceColHeader { font-size: 1.6vh; text-align: center; padding: .8vh 0; font-style: italic;    }
+    #feeHolder #procFeeFoot { grid-column: span 4; font-size: 1.2vh; text-align: center; padding: 1vh 0; }  
+    #feeHolder .serviceDesc { border-bottom: 1px solid rgba({$this->color_dark},.4); padding: .7vh 0 .7vh 1vw; }
+    #feeHolder .amtDsp { text-align: right; border-left: 1px solid rgba({$this->color_dark},.4);border-bottom: 1px solid rgba({$this->color_dark},.4); padding: .7vh .3vw .7vh 0;  } 
+    #feeHolder .amtDsp .sideColHead { display: none; }  
+
+    #copyrightdsp { text-align: center; font-size: 1.2vh; color: rgba({$this->color_dark1},1); padding: 2vh 0;   } 
+
+
 
 RTNTHIS;
 

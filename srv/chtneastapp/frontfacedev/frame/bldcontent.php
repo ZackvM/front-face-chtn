@@ -11,6 +11,47 @@ class bldcontent {
       $this->serverapi = $serverpw;
     }
 
+    function biospecimenservices ( $rqst ) {
+      $yr = date('Y');
+      $tt = treeTop;
+      $dt = dataTree;
+      $faget = json_decode(callrestapi("GET","{$dt}/chtneast-fee-schedule"),true);
+      $farr = $faget['DATA'];
+      $f = json_encode( $farr );
+      $effDate = "";
+      $header = ""; 
+      foreach ($farr as $ky => $vl) { 
+        $effDate = $vl['pagesource'];
+        if ($header !== $vl['menuvalue']) { 
+          $dspFeeSched .= "<div class=serviceHead>{$vl['menuvalue']}</div>";
+          $dspFeeSched .= "<div class=serviceColHeader>&nbsp;</div><div class=serviceColHeader>Academic</div><div class=serviceColHeader>Commercial</div><div class=serviceColHeader>Outside U.S.*</div>";
+          $header = $vl['menuvalue'];
+        }
+        $dspFeeSched .= "<div class=serviceDesc>{$vl['dspvalue']} {$vl['addinfo']}</div><div class=amtDsp><div class=sideColHead>Aca</div><div>&dollar;{$vl['academicvalue']}</div></div><div class=amtDsp><div class=sideColHead>Com</div><div>&dollar;{$vl['commercialvalue']}</div></div><div class=amtDsp><div class=sideColHead>Out</div><div>&dollar;{$vl['outsideinvestigatorvalue']}</div></div>";
+      }
+      $dspFeeSched .= "<div id=procFeeFoot>* Investigators outside of North America may be asked to prepay before samples are shipped. </div>";
+   
+      $procTbl = <<<PROCTBL
+    <div class=title>Fee Schedule for Processing Services (Effective {$effDate})</div>
+    <div class=explainer>The CHTN charges a processing fee for each sample to offset the costs of collecting, handling and preparing the specimens in accordance with the detailed requirements of the investigator. A sample is defined as one processed piece of a specimen, regardless of the sample size or type of processing. Investigators are responsible for all shipping costs. This charge will vary according to the weight and priority status of the shipment.
+<p>
+Several of the CHTN divisions offer additional specialized services. For a complete listing, CHTN Eastern investigators should contact the CHTN Eastern for more information on these services. Investigators may request chart reviews for a minimal fee. However, the following services can also be provided to investigators upon request. </div>
+
+<div id=feeHolder>{$dspFeeSched}</div>
+<div class=title>Specialized Services</div>
+<div class=explainer>Primary divisions should be contacted if an investigator requests any specialized service. Specialized services can be provided for a minimum fee of $25 or $25/hour.</div>
+<div class=title>Specialized services</div><div class=explainer>Including but are not limited to the following:<p><ul><li>Resending archived pathology reports/chart reviews previously sent to the investigator</li><li>Requirement to complete additional paperwork for procurement</li><li>Specialized packaging (other than standard CHTN protocol)</li><li>Specialized procurement (other than standard CHTN protocol)</li></ul></div>
+      
+PROCTBL;
+
+      $rtnthis = <<<RTNTHIS
+<div id=mainPageTitle>Biospecimen Service Fees</div>
+{$procTbl}
+<div id=copyrightdsp>&copy; 2009-{$yr} CHTNEastern/Trustees of the University of Pennsylvania </div>
+RTNTHIS;
+      return $rtnthis;
+    }
+
     function posterspapersabstracts ( $rqst ) {
       $tt = treeTop;
       $thisyear = date('Y');
@@ -114,7 +155,7 @@ PGERTN;
 
 <div id=moreLinks>
  
-<a href="https://www.chtn.org" target="_new">
+<a href="https://www.chtn.org" target="_blank">
    <div class="moreLinkLink borderright">
      <div class=moreLinkIconHolder><i class="material-icons">link</i></div>
      <div class=moreLinkTitle>CHTN Network</div>
@@ -173,10 +214,10 @@ Requirements for collection, storage and distribution vary depending on the type
 
 <div id=pgeFooter>
   <div id=allMasterLinks>
-   <a href="{$tt}">CHTNEastern</a>
-   <a href="https://scienceserver.chtneast.org" target="_new">CHTNEastern ScienceServer</a>
-   <a href="https://transient.chtneast.org" target="_new">CHTNEastern Transient Inventory Search</a>
-   <a href="{$tt}">CHTNEastern Services</a>
+   <a href="{$tt}" target="_blank">CHTNEastern</a>
+   <a href="https://scienceserver.chtneast.org" target="_blank">CHTNEastern ScienceServer</a>
+   <a href="https://transient.chtneast.org" target="_blank">CHTNEastern Transient Inventory Search</a>
+   <a href="{$tt}/biospecimen-services">CHTNEastern Services</a>
    <a href="{$tt}">Pay Processing Fee Invoice</a>
    <a href="{$tt}">Contact CHTNEastern</a>
    <a href="{$tt}/posters-papers-abstracts">Papers, Publications &amp; Talks</a>
